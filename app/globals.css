@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ─── Design Tokens ─── */
+:root {
+  --bg:           #0f0a05;
+  --surface:      #1c1108;
+  --surface2:     #261807;
+  --primary:      #c8813a;
+  --primary-dim:  #a0622b;
+  --accent:       #e8c97b;
+  --text:         #f5ede0;
+  --text-muted:   #9b8070;
+  --border:       rgba(200,129,58,0.18);
+  --glass:        rgba(28,17,8,0.72);
+  --radius-sm:    8px;
+  --radius-md:    16px;
+  --radius-lg:    24px;
+  --transition:   0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── Typography ─── */
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+p  { font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+
+/* ─── Utility ─── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.section    { padding: 7rem 0; }
+.section-sm { padding: 4rem 0; }
+.text-primary { color: var(--primary); }
+.text-accent  { color: var(--accent); }
+.serif        { font-family: 'Playfair Display', serif; }
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em;
+  cursor: pointer; border: none; text-decoration: none;
+  transition: var(--transition);
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(200,129,58,0.35);
+}
+.btn-primary:hover {
+  background: var(--primary-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(200,129,58,0.45);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border);
+}
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* ─── Divider ─── */
+.divider {
+  width: 60px; height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 2px; margin: 1.5rem 0;
+}
+.divider-center { margin: 1.5rem auto; }
+
+/* ─── Cards ─── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition);
+}
+.card:hover {
+  border-color: var(--primary);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+/* ─── Section Headings ─── */
+.section-heading { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
+.section-heading .label {
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--primary); margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* ─── Image Overlay Helper ─── */
+.img-cover { width: 100%; height: 100%; object-fit: cover; }
